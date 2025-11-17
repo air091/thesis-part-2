@@ -1,0 +1,35 @@
+.card_management__container header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card_management__container header h1 {
+    font-size: 1.6rem;
+}
+
+.card_management__container header .filter__wrapper {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.card_management__container header .filter__wrapper select {
+    padding-inline: 1rem;
+}
+
+/* TABLE */
+.card_management__container table {
+    border: 2px solid red;
+    width: 100%;
+    text-align: start;
+}
+
+.card_management__container table tr:first-child {
+    font-size: 1.2rem;
+    color: #A3A3A3;
+}
+
+.card_management__container table tr:first-child th:nth-child(2) {
+    display: flex;
+    align-items: center;
+}

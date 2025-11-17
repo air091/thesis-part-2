@@ -1,0 +1,73 @@
+.dashboard__container header h1 {
+  font-size: 1.6rem;
+}
+
+.dashboard__container .row_2 {
+  display: flex;
+  padding-block: 1rem;
+  column-gap: 2rem;
+}
+
+div.dashboard__card {
+  width: fit-content;
+  height: fit-content;
+  background-color: aqua;
+  padding: 1rem 1.6rem;
+  border-radius: 1rem;
+  box-shadow: 0.4rem 0.4rem 0.8rem hsla(0, 0%, 0%, 16%);
+}
+
+
+
+div.dashboard__card header {
+  display: flex;
+  column-gap: 3rem;
+  font-weight: 700;
+}
+
+div.dashboard__card header .card_name {
+    font-size: 2rem;
+}
+
+div.dashboard__card header .assumed__date {
+  font-size: 1rem;
+}
+
+div.dashboard__card .option__selectors__wrapper {
+  display: flex;
+  column-gap: 1rem;
+}
+
+div.dashboard__card .option__selectors__wrapper select {
+  color: #f0f0f0;
+  background-color: #484848;
+  border: 1px solid #f0f0f0;
+  font-size: 1.2rem;
+  padding-inline: 0.5rem;
+  border-radius: 0.4rem;
+}
+
+div.dashboard__card .row_2 .row_2__wrapper {
+  display: flex;
+  font-weight: 700;
+  font-size: 5.4rem;
+  width: 100%;
+  text-align: end;
+}
+
+div.dashboard__card .row_2 .row_2__wrapper div {
+  width: 100%;
+}
+
+div.dashboard__card .row_2 .row_2__wrapper div span{
+  display: inline-block;
+}
+
+div.dashboard__card .row_2 .row_2__wrapper div .estimated_value, div.dashboard__card .row_2 .row_2__wrapper div .currency {
+  font-size: 3.2rem;
+}
+
+div.dashboard__card .row_2 .row_2__wrapper div .currency, 
+div.dashboard__card .row_2 .row_2__wrapper div .revenue_value {
+  color: #7DFF7D;
+}
