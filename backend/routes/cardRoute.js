@@ -1,22 +1,16 @@
 import express from "express";
 import {
-  postCard,
-  getQueryCardById,
+  deleteCardController,
   getCards,
-  putCard,
-  deleteCard,
+  postCard,
+  updateCardController,
 } from "../controllers/cardController.js";
 
 const router = express.Router();
 
 router.post("/", postCard);
-
-router.get("/query", getQueryCardById);
-
 router.get("/", getCards);
-
-router.put("/:id", putCard);
-
-router.delete("/:id", deleteCard);
+router.put("/:cardIdParam", updateCardController);
+router.delete("/:cardIdParam", deleteCardController);
 
 export default router;

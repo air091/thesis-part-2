@@ -1,86 +1,69 @@
 import {
   insertCard,
-  selectAllCards,
-  selectIdCard,
-  updateByIdCard,
-  deleteByIdCard,
-} from "../services/databaseService.js";
+  selectCards,
+  updateCard,
+  deleteCard,
+} from "../services/cardService.js";
 
 export const postCard = async (request, response) => {
   try {
-    const { cardID } = request.body;
-    if (!cardID) throw new Error("Card ID is required.");
-    await insertCard(cardID);
-    const selectCard = await selectIdCard(cardID);
-
-    response
-      .status(201)
-      .json({ message: "Card created successfully.", data: selectCard });
+    const { cardId } = request.body;
+    if (!cardId)
+      return response.status(400).json({ message: "Card is required." });
+    await insertCard(cardId);
+    response.status(201).json({ message: "Card created successfully." });
   } catch (error) {
-    console.log(`Create card ${error}`);
-    response.status(500).json({ message: error.message });
-  }
-};
-
-export const getQueryCardById = async (request, response) => {
-  try {
-    const { cardID } = request.query;
-    if (!cardID)
-      return response.status(400).json({ message: "CardID is required." });
-    const card = await selectIdCard(cardID);
-    if (!card) return response.status(404).json({ message: "Card not found." });
-    response
-      .status(200)
-      .json({ message: "Card fetched successfully.", data: card });
-  } catch (error) {
-    console.log(`Get card ${error}`);
+    console.error(`Post card ${error.message}`);
     response.status(500).json({ message: error.message });
   }
 };
 
 export const getCards = async (request, response) => {
   try {
-    const cards = await selectAllCards();
-    if (cards.length === 0)
-      return response.status(404).json({ message: "No cards yet." });
+    const cards = await selectCards();
     response
       .status(200)
-      .json({ message: "Cards fetched successfully.", data: cards });
+      .json({ message: "Cards fetched successfully", cards: cards });
   } catch (error) {
-    console.log(`Get cards ${error}`);
+    console.error(`Get card ${error.message}`);
     response.status(500).json({ message: error.message });
   }
 };
 
-export const putCard = async (request, response) => {
+export const updateCardController = async (request, response) => {
   try {
-    const { id } = request.params;
-    const { status } = request.body;
-    if (!id)
-      return response.status(400).json({ message: "Card ID is invalid." });
-    if (!status)
-      return response.status(400).json({ message: "Card status is required." });
-    const updatedCard = await updateByIdCard(status, id);
+    const { cardIdParam } = request.params;
+    const { cardId, status } = request.body;
+
+    if (!cardIdParam)
+      return response
+        .status(400)
+        .json({ message: "Card Id params is required" });
+
+    const updatedCard = await updateCard(cardId, status, cardIdParam);
     if (updatedCard.affectedRows === 0)
       return response.status(404).json({ message: "Card not found." });
-    return response
+
+    response
       .status(200)
-      .json({ message: "Card updated successfully", updatedCard });
+      .json({ message: "Card updated successfully.", updatedCard });
   } catch (error) {
-    console.log(`Update card ${error}`);
+    console.error(`Update card controller ${error.message}`);
     response.status(500).json({ message: error.message });
   }
 };
 
-export const deleteCard = async (request, response) => {
+export const deleteCardController = async (request, response) => {
   try {
-    const { id } = request.params;
-    const deletedCard = await deleteByIdCard(id);
+    const { cardIdParam } = request.params;
+    if (!cardIdParam)
+      return response.status(400).json({ message: "Card Id is required." });
+    const deletedCard = await deleteCard(cardIdParam);
     if (deletedCard.affectedRows === 0)
       return response.status(404).json({ message: "Card not found." });
-    response.status(200).json({ message: "Card deleted successfully" });
+    response.status(200).json({ message: "Card deleted successfully." });
   } catch (error) {
-    console.log(`Delete card ${error}`);
+    console.error(`Delete card controller ${error.message}`);
     response.status(500).json({ message: error.message });
   }
 };
