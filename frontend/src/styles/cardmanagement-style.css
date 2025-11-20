@@ -1,3 +1,8 @@
+.card_management__container {
+    display: grid;
+    row-gap: 1rem;
+}
+
 .card_management__container header {
     display: flex;
     justify-content: space-between;
@@ -11,25 +16,66 @@
 .card_management__container header .filter__wrapper {
     display: flex;
     column-gap: 1rem;
+    font-size: 1.2rem;
 }
 
 .card_management__container header .filter__wrapper select {
     padding-inline: 1rem;
+    padding-block: 0.2rem;
+    font-size: 1.2rem;
 }
 
 /* TABLE */
-.card_management__container table {
-    border: 2px solid red;
+.table_content {
     width: 100%;
-    text-align: start;
+    border-collapse: collapse;
 }
 
-.card_management__container table tr:first-child {
+.table_content thead tr {
     font-size: 1.2rem;
+    text-align: left;
     color: #A3A3A3;
 }
 
-.card_management__container table tr:first-child th:nth-child(2) {
+.table_content thead th:nth-child(2), 
+.table_content td:nth-child(2){
     display: flex;
     align-items: center;
+    column-gap: 1rem;
+}
+
+.table_content th, 
+.table_content td {
+    padding: 0.4rem;
+    font-weight: 400;
+}
+
+.session__container .table_content td:nth-child(3), 
+.session__container .table_content td:nth-child(4), 
+.session__container .table_content td:nth-child(6), 
+.payment__container .table_content td:nth-child(4),
+.payment__container .table_content td:nth-child(5) {
+    font-size: 1.2rem;
+}
+
+.table_content td:last-child {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.table_content td:last-child button {
+    padding-inline: 1.6rem;
+    padding-block: 0.2rem;
+    color: var(--white-font);
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+    border: none;
+}
+
+.table_content td:last-child button:last-child {
+    background-color: #FB6D00;
+}
+
+.table_content td:last-child button:first-child {
+    background-color: #FF0000;
 }

@@ -1,0 +1,22 @@
+.session__container {
+    display: grid;
+    row-gap: 1rem;
+} 
+
+.session__container header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.session__container header div {
+    display: flex;
+    font-size: 1.2rem;
+    align-items: center;
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+.session__container header div select {
+    font-size: 1.2rem;
+    padding: 0.2rem 1rem;
+}

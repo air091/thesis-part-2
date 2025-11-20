@@ -1,0 +1,27 @@
+.payment__container {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.payment__container header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.payment__container header h1 {
+    font-size: 1.6rem;
+}
+
+.payment__container header .filter__wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.payment__container header .filter__wrapper select {
+    padding-inline: 1rem;
+    padding-block: 0.2rem;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,4 @@
+try mo i-run
+go signin
+"cd frontend" ka muna   need pa mag sign in HAHHAHA
+npm run dev

@@ -19,15 +19,53 @@ const CardsManagement = () => {
           </select>
         </div>
       </header>
-      <table>
-        <tr>
-          <th>Card UID</th>
-          <th>
-            <GoDotFill /> Status
-          </th>
-          <th>Last used</th>
-          <th>Actions</th>
-        </tr>
+      <table className="table_content">
+        <thead>
+          <tr>
+            <th>Card UID</th>
+            <th>
+              <GoDotFill size={12} /> Status
+            </th>
+            <th>Last used</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>B3:48:17:40</td>
+            <td>
+              <GoDotFill size={12} /> Active
+            </td>
+            <td>11/15/2025 - 10:12 PM</td>
+            <td>
+              <button>Delete</button>
+              <button>Maintenance</button>
+            </td>
+          </tr>
+          <tr>
+            <td>B3:48:17:40</td>
+            <td>
+              <GoDotFill size={12} /> Maintenance
+            </td>
+            <td>11/15/2025 - 10:12 PM</td>
+            <td>
+              <button>Delete</button>
+              <button>Maintenance</button>
+            </td>
+          </tr>
+          <tr>
+            <td>B3:48:17:40</td>
+            <td>
+              <GoDotFill size={12} /> Used
+            </td>
+            <td>11/15/2025 - 10:12 PM</td>
+            <td>
+              <button>Delete</button>
+              <button>Maintenance</button>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );

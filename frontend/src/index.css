@@ -3,6 +3,7 @@
 :root {
   --black: #303030;
   --white: #ffffff;
+  --white-font: #f0f0f0;
   --white-bg: #f2f2f2;
   --white-hover: #f4f4f4;
   --font: "Inter", sans-serif;
