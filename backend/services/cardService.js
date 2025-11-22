@@ -18,6 +18,7 @@ export const insertCard = async (cardId) => {
   }
 };
 
+// select
 export const selectCards = async () => {
   const selectQuery = `SELECT * FROM rfid_cards`;
   const connection = await pool.getConnection();
@@ -26,6 +27,21 @@ export const selectCards = async () => {
     return rows;
   } catch (error) {
     console.error(`Select card ${error.message}`);
+    throw error;
+  } finally {
+    connection.release();
+  }
+};
+
+export const selectCardById = async (cardId) => {
+  const selectQuery = `SELECT * FROM rfid_cards
+                      WHERE card_id = ?`;
+  const connection = await pool.getConnection();
+  try {
+    const [rows] = await connection.execute(selectQuery, [cardId]);
+    return rows;
+  } catch (error) {
+    console.error(`Select card by id ${error.message}`);
     throw error;
   } finally {
     connection.release();

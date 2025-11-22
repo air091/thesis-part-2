@@ -8,6 +8,7 @@ import {
 export const postCard = async (request, response) => {
   try {
     const { cardId } = request.body;
+    console.log("Received card:", cardId);
     if (!cardId)
       return response.status(400).json({ message: "Card is required." });
     await insertCard(cardId);
@@ -21,6 +22,8 @@ export const postCard = async (request, response) => {
 export const getCards = async (request, response) => {
   try {
     const cards = await selectCards();
+    if (cards.length === 0)
+      return response.status(404).json({ message: "No cards found." });
     response
       .status(200)
       .json({ message: "Cards fetched successfully", cards: cards });
